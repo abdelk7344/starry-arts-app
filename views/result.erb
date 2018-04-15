@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Starry Arts</title>
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- custom css -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <!-- custom JS -->
+    <script src="js/script.js"></script>
+  </head>
+  <body background=<%=@final["image"]%>>
+    <div id="landing-result">
+    <div class="container">
+
+      <!-- Portfolio Item Heading -->
+      <h1 style="text-align:center;" class="my-4"><%=@final["title"]%>
+        <small style="color:#dedfe0;">Type of art: <%=@final["type"].capitalize%></small>
+      </h1>
+
+      <!-- Portfolio Item Row -->
+      <div class="row">
+
+        <div class="col-md-8">
+          <img class="img-fluid" src=<%=@final["image"]%> style="width:100%;max-width:600px;">
+        </div>
+
+        <div class="col-md-4">
+          <h3 class="my-3">Art Description</h3>
+          <p><%=@final["description"]%></p>
+          <br>
+          <h3 class="my-3">Additional Details</h3>
+          <!--<ul>-->
+            <p><b>Fun fact:</b> <%=@final["gallery_text"]%></p>
+            <p><b>Credit:</b> <%=@final["credit"]%></p>
+            <p><b>API Powered by:</b> Cooper Hewitt</p>
+          <!--</ul>-->
+        </div>
+        </div>
+  </div>
+    
+  </body>
+</html>
