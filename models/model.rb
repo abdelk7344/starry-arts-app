@@ -1,7 +1,7 @@
 require 'net/http'
 require 'json'
 require 'uri'
-require 'pp' 
+
 
 
 def get_pic(topic)
