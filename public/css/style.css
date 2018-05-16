@@ -41,14 +41,26 @@ p {
     font-family: 'Lobster', cursive;
 }
 
-.input {
-    font-size: 25px;
-    margin-top: 25px; 
+
+
+#input {
+    font-size: 28px;
 
 }
 
+
 #submit {
-    font-size: 17px;
+    font-size: 25px;
+    border-radius: 9px;
+    color: #005266;
+    background-color: white;
+    padding: 10px 35px;
+
+}
+
+
+#submit {
+    font-size: 18px;
     border-radius: 9px;
     color: #005266;
     background-color: white;
