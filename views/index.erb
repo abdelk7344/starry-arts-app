@@ -1,42 +1,80 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>-->
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Starry Arts</title>
-    
-    <!-- bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    
-    <!-- bootstrap JS -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    
-    <!-- favicon -->
-    <link rel="shortcut icon" type="image/x-icon" href="../public/img/favicon.ico"/>
-    
-    <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-    
-    <!-- custom JS -->
-    <script src="js/script.js"></script>
-  
-  </head>
-  <body>
-    
-    <header id="landing-home" class="form">
-      <div class="text-vertical-center" style="
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Starry Arts</title>
+
+  <!-- bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- bootstrap JS -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="../public/img/favicon.ico" />
+
+  <!-- custom css -->
+  <link rel="stylesheet" href="css/style.css" type="text/css">
+
+  <!-- custom JS -->
+  <script src="js/script.js" type="text/javascript"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js" type="text/javascript"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.0.2/firebase.js"></script>
+
+
+
+  <script>
+    var database;
+
+    function setup() {
+      var config = {
+        apiKey: "AIzaSyAJTyC0Kob9jYzMzkCMhe5f3kqe1Qf5uPg",
+        authDomain: "starryarts-5e88a.firebaseapp.com",
+        databaseURL: "https://starryarts-5e88a.firebaseio.com",
+        projectId: "starryarts-5e88a",
+        storageBucket: "",
+        messagingSenderId: "229831464226"
+      }
+
+      firebase.initializeApp(config);
+      database = firebase.database();
+    }
+
+    function pushData() {
+      var data = {
+        input: document.getElementById("input").value
+        
+      };
+      // console.log(data)
+      var ref =  database.ref('userInputs')
+      ref.push(data)
+    }
+  </script>
+
+
+</head>
+<!-- -->
+
+<body>
+
+  <header id="landing-home" class="form">
+    <div class="text-vertical-center" style="
     background: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.1))">
-      <form method="POST" action="/result" >
-        <span style="font-size:70px; font-family: 'Lobster', cursive; color:white">"Art isn't everything. It's just about everything"</span><br>
-        <p><span style="font-size:35px; font-family: 'Lobster', cursive; color:white;text-shadow: 0px;">Enter any topic to find your inspiration:</span></p>
-        <input id="input" style="color:black;font-size: 25px;" type="text" name="topic"><br><br>
-        <input type="submit" style="font-size: 23px;" value="Submit" id="submit">
+      <form method="POST" action="/result">
+      <span style="font-size:70px; font-family: 'Lobster', cursive; color:white">"Art isn't everything. It's just about everything"</span><br>
+      <p><span style="font-size:35px; font-family: 'Lobster', cursive; color:white;text-shadow: 0px;">Enter any topic to find your inspiration:</span></p>
+      <input id="input" style="color:black;font-size: 25px;" type="text" name="topic"><br><br>
+      <input type="submit" class="submit" id="input" style="font-size: 25px; border-radius: 9px;color: #005266; background-color: white;padding: 10px 35px;" onclick="pushData();">
       </form>
-      </div>
-    </header>
-  </body>
+    </div>
+  </header>
+</body>
+
 </html>
